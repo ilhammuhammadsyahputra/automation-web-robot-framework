@@ -1,0 +1,1958 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.13.4 on darwin)" generated="2026-04-17T20:29:36.571692" rpa="false" schemaversion="5">
+<suite id="s1" name="Shopping" source="/Users/ilhamputra/Documents/File-Testing/automation-web-robot/features/store/shopping.robot">
+<kw name="Register And Login Before Shopping" type="SETUP">
+<kw name="Open Browser To Homepage" owner="common_keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:36.693417" level="INFO">Opening browser 'chrome' to base url 'https://storedemo.testdino.com'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-04-17T20:29:36.693241" elapsed="3.439770"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-04-17T20:29:40.133358" elapsed="0.332879"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${SELENIUM_TIMEOUT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-04-17T20:29:40.466434" elapsed="0.008373"/>
+</kw>
+<kw name="Set Selenium Page Load Timeout" owner="SeleniumLibrary">
+<arg>${PAGE_LOAD_WAIT}</arg>
+<doc>Sets the page load timeout value used by Selenium.</doc>
+<status status="PASS" start="2026-04-17T20:29:40.475093" elapsed="0.000972"/>
+</kw>
+<kw name="Wait Until Page Is Loaded" owner="common_keywords">
+<kw name="Wait For Condition" owner="SeleniumLibrary">
+<arg>return document.readyState == "complete"</arg>
+<arg>timeout=30</arg>
+<doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
+<status status="PASS" start="2026-04-17T20:29:40.476376" elapsed="0.003645"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:40.476223" elapsed="0.003875"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:36.692775" elapsed="3.787363"/>
+</kw>
+<kw name="Do Signup With Random Email" owner="auth_keywords">
+<kw name="Generate Random User Data" owner="auth_keywords">
+<kw name="Generate Yopmail Email" owner="RandomHelper">
+<msg time="2026-04-17T20:29:40.481011" level="INFO">${email} = testuser_urnzmllm2580@yopmail.com</msg>
+<var>${email}</var>
+<doc>Generate a unique random email address using the @yopmail.com domain.</doc>
+<status status="PASS" start="2026-04-17T20:29:40.480564" elapsed="0.000468"/>
+</kw>
+<kw name="Generate Random Name" owner="RandomHelper">
+<msg time="2026-04-17T20:29:40.481161" level="INFO">${firstname} = Edward</msg>
+<var>${firstname}</var>
+<doc>Return a random first name from a predefined list.</doc>
+<status status="PASS" start="2026-04-17T20:29:40.481101" elapsed="0.000071"/>
+</kw>
+<kw name="Generate Random Last Name" owner="RandomHelper">
+<msg time="2026-04-17T20:29:40.481271" level="INFO">${lastname} = Johnson</msg>
+<var>${lastname}</var>
+<doc>Return a random last name from a predefined list.</doc>
+<status status="PASS" start="2026-04-17T20:29:40.481221" elapsed="0.000061"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-04-17T20:29:40.481482" level="INFO">${REGISTERED_EMAIL} = testuser_urnzmllm2580@yopmail.com</msg>
+<arg>${REGISTERED_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-04-17T20:29:40.481354" elapsed="0.000146"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-04-17T20:29:40.481646" level="INFO">${USER_FIRSTNAME} = Edward</msg>
+<arg>${USER_FIRSTNAME}</arg>
+<arg>${firstname}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-04-17T20:29:40.481556" elapsed="0.000108"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-04-17T20:29:40.481797" level="INFO">${USER_LASTNAME} = Johnson</msg>
+<arg>${USER_LASTNAME}</arg>
+<arg>${lastname}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-04-17T20:29:40.481717" elapsed="0.000097"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-04-17T20:29:40.481947" level="INFO">Generated credentials — Email: testuser_urnzmllm2580@yopmail.com | Name: Edward Johnson</msg>
+<arg>Generated credentials — Email: ${email} | Name: ${firstname} ${lastname}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-17T20:29:40.481865" elapsed="0.000103"/>
+</kw>
+<return>
+<value>${email}</value>
+<status status="PASS" start="2026-04-17T20:29:40.482002" elapsed="0.000044"/>
+</return>
+<status status="PASS" start="2026-04-17T20:29:40.480437" elapsed="0.001663"/>
+</kw>
+<kw name="Open Signup Page" owner="auth_keywords">
+<kw name="Navigate To Page" owner="common_keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:40.482382" level="INFO">Opening url 'https://storedemo.testdino.com/signup'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-04-17T20:29:40.482332" elapsed="0.597097"/>
+</kw>
+<kw name="Wait Until Page Is Loaded" owner="common_keywords">
+<kw name="Wait For Condition" owner="SeleniumLibrary">
+<arg>return document.readyState == "complete"</arg>
+<arg>timeout=30</arg>
+<doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
+<status status="PASS" start="2026-04-17T20:29:41.080507" elapsed="0.003298"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:41.080097" elapsed="0.003788"/>
+</kw>
+<arg>${SIGNUP_URL}</arg>
+<status status="PASS" start="2026-04-17T20:29:40.482242" elapsed="0.601677"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SIGNUP_EMAIL_INPUT}</arg>
+<arg>timeout=${SELENIUM_TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-17T20:29:41.084017" elapsed="0.071743"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:40.482163" elapsed="0.673680"/>
+</kw>
+<kw name="Fill Signup Form" owner="auth_keywords">
+<kw name="Wait And Input Text" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-17T20:29:41.156426" elapsed="0.009755"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:41.166318" elapsed="0.018566"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:41.185139" level="INFO">Typing text 'Edward' into text field 'css:[data-testid='signup-firstname-input']'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:41.184996" elapsed="0.096724"/>
+</kw>
+<arg>${SIGNUP_FIRSTNAME_INPUT}</arg>
+<arg>${firstname}</arg>
+<status status="PASS" start="2026-04-17T20:29:41.156249" elapsed="0.125551"/>
+</kw>
+<kw name="Wait And Input Text" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-17T20:29:41.282221" elapsed="0.009806"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:41.292152" elapsed="0.020452"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:41.313089" level="INFO">Typing text 'Johnson' into text field 'css:[data-testid='signup-lastname-input']'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:41.312820" elapsed="0.052357"/>
+</kw>
+<arg>${SIGNUP_LASTNAME_INPUT}</arg>
+<arg>${lastname}</arg>
+<status status="PASS" start="2026-04-17T20:29:41.281914" elapsed="0.083426"/>
+</kw>
+<kw name="Wait And Input Text" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-17T20:29:41.365787" elapsed="0.009878"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:41.375792" elapsed="0.019189"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:41.395311" level="INFO">Typing text 'testuser_urnzmllm2580@yopmail.com' into text field 'css:[data-testid='signup-email-input']'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:41.395155" elapsed="0.065917"/>
+</kw>
+<arg>${SIGNUP_EMAIL_INPUT}</arg>
+<arg>${email}</arg>
+<status status="PASS" start="2026-04-17T20:29:41.365581" elapsed="0.095572"/>
+</kw>
+<kw name="Wait And Input Text" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-17T20:29:41.461613" elapsed="0.013643"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:41.475387" elapsed="0.018649"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:41.494629" level="INFO">Typing text 'Admin12345' into text field 'css:[data-testid='signup-password-input']'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:41.494312" elapsed="0.051356"/>
+</kw>
+<arg>${SIGNUP_PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2026-04-17T20:29:41.461308" elapsed="0.084441"/>
+</kw>
+<arg>firstname=${USER_FIRSTNAME}</arg>
+<arg>lastname=${USER_LASTNAME}</arg>
+<arg>email=${REGISTERED_EMAIL}</arg>
+<arg>password=${DEFAULT_PASSWORD}</arg>
+<status status="PASS" start="2026-04-17T20:29:41.155963" elapsed="0.389818"/>
+</kw>
+<kw name="Submit Signup Form" owner="auth_keywords">
+<kw name="Wait And Click Element" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-17T20:29:41.546310" elapsed="0.010280"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:41.556852" level="INFO">Clicking element 'css:[data-testid='signup-submit-button']'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:41.556720" elapsed="0.033743"/>
+</kw>
+<arg>${SIGNUP_SUBMIT_BTN}</arg>
+<status status="PASS" start="2026-04-17T20:29:41.546099" elapsed="0.044451"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-04-17T20:29:43.592366" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-04-17T20:29:41.590673" elapsed="2.001810"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:41.545896" elapsed="2.046698"/>
+</kw>
+<kw name="Verify Signup Redirected To Login Page" owner="auth_keywords">
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/login</arg>
+<arg>timeout=${SELENIUM_TIMEOUT}</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-04-17T20:29:43.592991" elapsed="0.836618"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_PAGE_TITLE}</arg>
+<arg>timeout=${SELENIUM_TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-17T20:29:44.429781" elapsed="0.011872"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-04-17T20:29:44.441917" level="INFO">Signup successful — redirected to login page</msg>
+<arg>Signup successful — redirected to login page</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-17T20:29:44.441819" elapsed="0.000132"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:43.592774" elapsed="0.849228"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:40.480265" elapsed="3.961774"/>
+</kw>
+<kw name="Do Login With Registered Account" owner="auth_keywords">
+<kw name="Open Login Page" owner="auth_keywords">
+<kw name="Navigate To Page" owner="common_keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:44.442722" level="INFO">Opening url 'https://storedemo.testdino.com/login'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-04-17T20:29:44.442641" elapsed="0.587406"/>
+</kw>
+<kw name="Wait Until Page Is Loaded" owner="common_keywords">
+<kw name="Wait For Condition" owner="SeleniumLibrary">
+<arg>return document.readyState == "complete"</arg>
+<arg>timeout=30</arg>
+<doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
+<status status="PASS" start="2026-04-17T20:29:45.030596" elapsed="0.004401"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:45.030375" elapsed="0.004714"/>
+</kw>
+<arg>${LOGIN_URL}</arg>
+<status status="PASS" start="2026-04-17T20:29:44.442494" elapsed="0.592634"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_EMAIL_INPUT}</arg>
+<arg>timeout=${SELENIUM_TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-17T20:29:45.035240" elapsed="0.011138"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:44.442379" elapsed="0.604082"/>
+</kw>
+<kw name="Fill Login Form" owner="auth_keywords">
+<kw name="Wait And Input Text" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-17T20:29:45.046979" elapsed="0.007557"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:45.054664" elapsed="0.013825"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:45.068863" level="INFO">Typing text 'testuser_urnzmllm2580@yopmail.com' into text field 'css:[data-testid='login-email-input']'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:45.068622" elapsed="0.045703"/>
+</kw>
+<arg>${LOGIN_EMAIL_INPUT}</arg>
+<arg>${email}</arg>
+<status status="PASS" start="2026-04-17T20:29:45.046794" elapsed="0.067619"/>
+</kw>
+<kw name="Wait And Input Text" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-17T20:29:45.114754" elapsed="0.009804"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:45.124675" elapsed="0.016904"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:45.141828" level="INFO">Typing text 'Admin12345' into text field 'css:[data-testid='login-password-input']'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:45.141689" elapsed="0.046357"/>
+</kw>
+<arg>${LOGIN_PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2026-04-17T20:29:45.114543" elapsed="0.073604"/>
+</kw>
+<arg>${email}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2026-04-17T20:29:45.046579" elapsed="0.141615"/>
+</kw>
+<kw name="Submit Login Form" owner="auth_keywords">
+<kw name="Wait And Click Element" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-17T20:29:45.188581" elapsed="0.008331"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:45.197150" level="INFO">Clicking element 'css:[data-testid='login-submit-button']'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:45.197027" elapsed="0.029628"/>
+</kw>
+<arg>${LOGIN_SUBMIT_BTN}</arg>
+<status status="PASS" start="2026-04-17T20:29:45.188414" elapsed="0.038314"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-04-17T20:29:47.228175" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-04-17T20:29:45.226809" elapsed="2.001665"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:45.188301" elapsed="2.040414"/>
+</kw>
+<kw name="Verify Login Redirected To Homepage" owner="auth_keywords">
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>${BASE_URL}/</arg>
+<arg>timeout=${SELENIUM_TIMEOUT}</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-04-17T20:29:47.229604" elapsed="0.005709"/>
+</kw>
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:47.240001" level="INFO">${current_url} = https://storedemo.testdino.com/</msg>
+<var>${current_url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:29:47.235678" elapsed="0.004376"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<arg>${current_url}</arg>
+<arg>/login</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="PASS" start="2026-04-17T20:29:47.240261" elapsed="0.000232"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-04-17T20:29:47.240768" level="INFO">Login successful — redirected to homepage</msg>
+<arg>Login successful — redirected to homepage</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-17T20:29:47.240654" elapsed="0.000173"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:47.229168" elapsed="0.011747"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:44.442151" elapsed="2.798828"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:36.692489" elapsed="10.548552"/>
+</kw>
+<test id="s1-t1" name="TC-04: Filter Products By Category And Checkout With Cash On Delivery" line="47">
+<kw name="Given I Am On The All Products Page">
+<kw name="Navigate To Page" owner="common_keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:47.244478" level="INFO">Opening url 'https://storedemo.testdino.com/products'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-04-17T20:29:47.244317" elapsed="0.589741"/>
+</kw>
+<kw name="Wait Until Page Is Loaded" owner="common_keywords">
+<kw name="Wait For Condition" owner="SeleniumLibrary">
+<arg>return document.readyState == "complete"</arg>
+<arg>timeout=30</arg>
+<doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
+<status status="PASS" start="2026-04-17T20:29:47.834607" elapsed="0.018089"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:47.834336" elapsed="0.018519"/>
+</kw>
+<arg>${PRODUCTS_URL}</arg>
+<status status="PASS" start="2026-04-17T20:29:47.243223" elapsed="0.609838"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${PRODUCTS_PAGE_TITLE}</arg>
+<arg>timeout=${SELENIUM_TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-17T20:29:47.853183" elapsed="0.031600"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:47.242675" elapsed="0.642185"/>
+</kw>
+<kw name="When I Apply The Category Filter">
+<kw name="Open Filter Panel" owner="shop_keywords">
+<kw name="Wait And Click Element" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-17T20:29:47.885896" elapsed="0.009866"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:47.896002" level="INFO">Clicking element 'css:[data-testid='all-products-filter-toggle']'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:47.895881" elapsed="0.037609"/>
+</kw>
+<arg>${PRODUCTS_FILTER_TOGGLE_BTN}</arg>
+<status status="PASS" start="2026-04-17T20:29:47.885352" elapsed="0.048213"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${FILTER_CATEGORY_SELECT}</arg>
+<arg>timeout=${SELENIUM_TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-17T20:29:47.933651" elapsed="0.007973"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-04-17T20:29:47.941798" level="INFO">Filter panel is open</msg>
+<arg>Filter panel is open</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-17T20:29:47.941731" elapsed="0.000087"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:47.885249" elapsed="0.056602"/>
+</kw>
+<kw name="Select Category Filter" owner="shop_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${FILTER_CATEGORY_SELECT}</arg>
+<arg>timeout=${SELENIUM_TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-17T20:29:47.942051" elapsed="0.005594"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:47.947906" level="INFO">Selecting options from selection list 'css:[data-testid='all-products-category-select']' by label All.</msg>
+<arg>${FILTER_CATEGORY_SELECT}</arg>
+<arg>${category_label}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2026-04-17T20:29:47.947758" elapsed="0.019067"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-04-17T20:29:49.967772" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-04-17T20:29:47.966938" elapsed="2.000954"/>
+</kw>
+<kw name="Wait And Click Element" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-17T20:29:49.968326" elapsed="0.005774"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:49.974334" level="INFO">Clicking element 'css:[data-testid='all-products-filter-toggle']'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:49.974212" elapsed="0.024808"/>
+</kw>
+<arg>${PRODUCTS_FILTER_TOGGLE_BTN}</arg>
+<status status="PASS" start="2026-04-17T20:29:49.968085" elapsed="0.031010"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-04-17T20:29:51.001345" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-04-17T20:29:49.999172" elapsed="1.002358"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-04-17T20:29:51.002410" level="INFO">Category filter applied: All</msg>
+<arg>Category filter applied: ${category_label}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-17T20:29:51.002153" elapsed="0.000318"/>
+</kw>
+<arg>All</arg>
+<status status="PASS" start="2026-04-17T20:29:47.941923" elapsed="3.060644"/>
+</kw>
+<kw name="Get Product Count From Results Label" owner="shop_keywords">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:51.026706" level="INFO">${count_text} = Showing 14 products</msg>
+<var>${count_text}</var>
+<arg>${PRODUCTS_RESULTS_COUNT}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:51.003114" elapsed="0.023632"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-04-17T20:29:51.027048" level="INFO">Products visible after filter: Showing 14 products</msg>
+<arg>Products visible after filter: ${count_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-17T20:29:51.026909" elapsed="0.000173"/>
+</kw>
+<return>
+<value>${count_text}</value>
+<status status="PASS" start="2026-04-17T20:29:51.027134" elapsed="0.000051"/>
+</return>
+<msg time="2026-04-17T20:29:51.027305" level="INFO">${count} = Showing 14 products</msg>
+<var>${count}</var>
+<status status="PASS" start="2026-04-17T20:29:51.002800" elapsed="0.024525"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-04-17T20:29:51.027525" level="INFO">Products shown after filtering: Showing 14 products</msg>
+<arg>Products shown after filtering: ${count}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-17T20:29:51.027422" elapsed="0.000133"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:47.884989" elapsed="3.142616"/>
+</kw>
+<kw name="And I Add The Target Product To The Cart">
+<kw name="Add Product To Cart By Name" owner="shop_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ALL_PRODUCTS_NAME_SELECTOR}</arg>
+<arg>timeout=${SELENIUM_TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-17T20:29:51.028219" elapsed="0.013029"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:51.046229" level="INFO">${name_elements} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="cd723be18dd0f1ee5bcd68763d3f3a35", element="f.559C2C8B48EB60F15A02016318FF7430.d.165A491B766E145BDF1F359AFC1C4459.e.251")&gt;, &lt;selenium.webdri...</msg>
+<var>${name_elements}</var>
+<arg>${ALL_PRODUCTS_NAME_SELECTOR}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:51.041417" elapsed="0.004841"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:51.053101" level="INFO">${cart_buttons} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="cd723be18dd0f1ee5bcd68763d3f3a35", element="f.559C2C8B48EB60F15A02016318FF7430.d.165A491B766E145BDF1F359AFC1C4459.e.265")&gt;, &lt;selenium.webdri...</msg>
+<var>${cart_buttons}</var>
+<arg>${ALL_PRODUCTS_CART_BTN_SELECTOR}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:51.046357" elapsed="0.006773"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2026-04-17T20:29:51.053325" level="INFO">Length is 14.</msg>
+<msg time="2026-04-17T20:29:51.053373" level="INFO">${count} = 14</msg>
+<var>${count}</var>
+<arg>${name_elements}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2026-04-17T20:29:51.053233" elapsed="0.000153"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:51.058162" level="INFO">${name} = Rode NT1-A Condenser Mic</msg>
+<var>${name}</var>
+<arg>${name_elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:51.053673" elapsed="0.004510"/>
+</kw>
+<if>
+<branch type="IF" condition="'${name}' == '${target_name}'">
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${SELECTED_PRODUCT_NAME}</arg>
+<arg>${name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.058454" elapsed="0.000018"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${cart_buttons}[${i}]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.058541" elapsed="0.000014"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.058609" elapsed="0.000013"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>'${name}' added to cart</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.058677" elapsed="0.000012"/>
+</kw>
+<return>
+<status status="NOT RUN" start="2026-04-17T20:29:51.058716" elapsed="0.000013"/>
+</return>
+<status status="NOT RUN" start="2026-04-17T20:29:51.058258" elapsed="0.000492"/>
+</branch>
+<status status="PASS" start="2026-04-17T20:29:51.058240" elapsed="0.000536"/>
+</if>
+<var name="${i}">0</var>
+<status status="PASS" start="2026-04-17T20:29:51.053598" elapsed="0.005195"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:51.062924" level="INFO">${name} = JBL Charge 4 Bluetooth Speaker</msg>
+<var>${name}</var>
+<arg>${name_elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:51.058952" elapsed="0.003992"/>
+</kw>
+<if>
+<branch type="IF" condition="'${name}' == '${target_name}'">
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${SELECTED_PRODUCT_NAME}</arg>
+<arg>${name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.063136" elapsed="0.000016"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${cart_buttons}[${i}]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.063214" elapsed="0.000012"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.063274" elapsed="0.000011"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>'${name}' added to cart</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.063337" elapsed="0.000012"/>
+</kw>
+<return>
+<status status="NOT RUN" start="2026-04-17T20:29:51.063374" elapsed="0.000011"/>
+</return>
+<status status="NOT RUN" start="2026-04-17T20:29:51.063002" elapsed="0.000401"/>
+</branch>
+<status status="PASS" start="2026-04-17T20:29:51.062989" elapsed="0.000435"/>
+</if>
+<var name="${i}">1</var>
+<status status="PASS" start="2026-04-17T20:29:51.058895" elapsed="0.004542"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:51.067382" level="INFO">${name} = Seagate 4TB External Hard Drive</msg>
+<var>${name}</var>
+<arg>${name_elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:51.063573" elapsed="0.003827"/>
+</kw>
+<if>
+<branch type="IF" condition="'${name}' == '${target_name}'">
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${SELECTED_PRODUCT_NAME}</arg>
+<arg>${name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.067577" elapsed="0.000016"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${cart_buttons}[${i}]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.067654" elapsed="0.000012"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.067761" elapsed="0.000015"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>'${name}' added to cart</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.067828" elapsed="0.000012"/>
+</kw>
+<return>
+<status status="NOT RUN" start="2026-04-17T20:29:51.067865" elapsed="0.000012"/>
+</return>
+<status status="NOT RUN" start="2026-04-17T20:29:51.067452" elapsed="0.000443"/>
+</branch>
+<status status="PASS" start="2026-04-17T20:29:51.067442" elapsed="0.000472"/>
+</if>
+<var name="${i}">2</var>
+<status status="PASS" start="2026-04-17T20:29:51.063523" elapsed="0.004404"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:51.072171" level="INFO">${name} = SanDisk Ultra Dual Drive 32GB USB 3.0</msg>
+<var>${name}</var>
+<arg>${name_elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:51.068060" elapsed="0.004134"/>
+</kw>
+<if>
+<branch type="IF" condition="'${name}' == '${target_name}'">
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${SELECTED_PRODUCT_NAME}</arg>
+<arg>${name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.072406" elapsed="0.000015"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${cart_buttons}[${i}]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.072480" elapsed="0.000011"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.072537" elapsed="0.000011"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>'${name}' added to cart</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.072595" elapsed="0.000011"/>
+</kw>
+<return>
+<status status="NOT RUN" start="2026-04-17T20:29:51.072630" elapsed="0.000012"/>
+</return>
+<status status="NOT RUN" start="2026-04-17T20:29:51.072259" elapsed="0.000400"/>
+</branch>
+<status status="PASS" start="2026-04-17T20:29:51.072248" elapsed="0.000430"/>
+</if>
+<var name="${i}">3</var>
+<status status="PASS" start="2026-04-17T20:29:51.068012" elapsed="0.004678"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:51.076785" level="INFO">${name} = GoPro HERO10 Black</msg>
+<var>${name}</var>
+<arg>${name_elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:51.072823" elapsed="0.003986"/>
+</kw>
+<if>
+<branch type="IF" condition="'${name}' == '${target_name}'">
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${SELECTED_PRODUCT_NAME}</arg>
+<arg>${name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.077039" elapsed="0.000016"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${cart_buttons}[${i}]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.077115" elapsed="0.000012"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.077172" elapsed="0.000011"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>'${name}' added to cart</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.077234" elapsed="0.000010"/>
+</kw>
+<return>
+<status status="NOT RUN" start="2026-04-17T20:29:51.077268" elapsed="0.000011"/>
+</return>
+<status status="NOT RUN" start="2026-04-17T20:29:51.076880" elapsed="0.000417"/>
+</branch>
+<status status="PASS" start="2026-04-17T20:29:51.076867" elapsed="0.000448"/>
+</if>
+<var name="${i}">4</var>
+<status status="PASS" start="2026-04-17T20:29:51.072775" elapsed="0.004553"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:51.081432" level="INFO">${name} = Logitech MX Master 3 Wireless Mouse</msg>
+<var>${name}</var>
+<arg>${name_elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:51.077476" elapsed="0.003979"/>
+</kw>
+<if>
+<branch type="IF" condition="'${name}' == '${target_name}'">
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${SELECTED_PRODUCT_NAME}</arg>
+<arg>${name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.081669" elapsed="0.000015"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${cart_buttons}[${i}]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.081741" elapsed="0.000011"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.081794" elapsed="0.000010"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>'${name}' added to cart</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.081849" elapsed="0.000011"/>
+</kw>
+<return>
+<status status="NOT RUN" start="2026-04-17T20:29:51.081884" elapsed="0.000011"/>
+</return>
+<status status="NOT RUN" start="2026-04-17T20:29:51.081520" elapsed="0.000391"/>
+</branch>
+<status status="PASS" start="2026-04-17T20:29:51.081509" elapsed="0.000419"/>
+</if>
+<var name="${i}">5</var>
+<status status="PASS" start="2026-04-17T20:29:51.077415" elapsed="0.004525"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:51.085524" level="INFO">${name} = TP-Link Archer AX73 Wi-Fi 6 Router</msg>
+<var>${name}</var>
+<arg>${name_elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:51.082070" elapsed="0.003477"/>
+</kw>
+<if>
+<branch type="IF" condition="'${name}' == '${target_name}'">
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${SELECTED_PRODUCT_NAME}</arg>
+<arg>${name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.085734" elapsed="0.000015"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${cart_buttons}[${i}]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.085803" elapsed="0.000011"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.085869" elapsed="0.000020"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>'${name}' added to cart</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:51.085967" elapsed="0.000023"/>
+</kw>
+<return>
+<status status="NOT RUN" start="2026-04-17T20:29:51.086032" elapsed="0.000015"/>
+</return>
+<status status="NOT RUN" start="2026-04-17T20:29:51.085605" elapsed="0.000459"/>
+</branch>
+<status status="PASS" start="2026-04-17T20:29:51.085593" elapsed="0.000489"/>
+</if>
+<var name="${i}">6</var>
+<status status="PASS" start="2026-04-17T20:29:51.082020" elapsed="0.004075"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:51.090037" level="INFO">${name} = Apple iPad Air (2022, 5th Gen)</msg>
+<var>${name}</var>
+<arg>${name_elements}[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:51.086267" elapsed="0.003790"/>
+</kw>
+<if>
+<branch type="IF" condition="'${name}' == '${target_name}'">
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-04-17T20:29:51.091280" level="INFO">${SELECTED_PRODUCT_NAME} = Apple iPad Air (2022, 5th Gen)</msg>
+<arg>${SELECTED_PRODUCT_NAME}</arg>
+<arg>${name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-04-17T20:29:51.090262" elapsed="0.001070"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:51.091502" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="cd723be18dd0f1ee5bcd68763d3f3a35", element="f.559C2C8B48EB60F15A02016318FF7430.d.165A491B766E145BDF1F359AFC1C4459.e.272")&gt;'.</msg>
+<arg>${cart_buttons}[${i}]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:51.091403" elapsed="0.040965"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-04-17T20:29:52.633179" level="INFO">Slept 1 second 500 milliseconds.</msg>
+<arg>1.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-04-17T20:29:51.132491" elapsed="1.500790"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-04-17T20:29:52.633614" level="INFO">'Apple iPad Air (2022, 5th Gen)' added to cart</msg>
+<arg>'${name}' added to cart</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-17T20:29:52.633462" elapsed="0.000188"/>
+</kw>
+<return>
+<status status="PASS" start="2026-04-17T20:29:52.633702" elapsed="0.000039"/>
+</return>
+<status status="PASS" start="2026-04-17T20:29:51.090120" elapsed="1.543656"/>
+</branch>
+<status status="PASS" start="2026-04-17T20:29:51.090110" elapsed="1.543703"/>
+</if>
+<var name="${i}">7</var>
+<status status="PASS" start="2026-04-17T20:29:51.086204" elapsed="1.547635"/>
+</iter>
+<var>${i}</var>
+<value>${count}</value>
+<status status="PASS" start="2026-04-17T20:29:51.053442" elapsed="1.580436"/>
+</for>
+<kw name="Fail" owner="BuiltIn">
+<arg>Product named '${target_name}' was not found on the current page</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2026-04-17T20:29:52.633995" elapsed="0.000023"/>
+</kw>
+<arg>Apple iPad Air (2022, 5th Gen)</arg>
+<status status="PASS" start="2026-04-17T20:29:51.028037" elapsed="1.606104"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:51.027726" elapsed="1.606481"/>
+</kw>
+<kw name="And I Proceed From Cart To Checkout">
+<kw name="Open Cart Page" owner="shop_keywords">
+<kw name="Navigate To Page" owner="common_keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:52.635035" level="INFO">Opening url 'https://storedemo.testdino.com/cart'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-04-17T20:29:52.634943" elapsed="0.575657"/>
+</kw>
+<kw name="Wait Until Page Is Loaded" owner="common_keywords">
+<kw name="Wait For Condition" owner="SeleniumLibrary">
+<arg>return document.readyState == "complete"</arg>
+<arg>timeout=30</arg>
+<doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
+<status status="PASS" start="2026-04-17T20:29:53.210945" elapsed="0.001841"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:53.210751" elapsed="0.002094"/>
+</kw>
+<arg>${CART_URL}</arg>
+<status status="PASS" start="2026-04-17T20:29:52.634756" elapsed="0.578279"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CART_PAGE_TITLE}</arg>
+<arg>timeout=${SELENIUM_TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-17T20:29:53.213330" elapsed="0.009124"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-04-17T20:29:53.222678" level="INFO">Cart page opened</msg>
+<arg>Cart page opened</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-17T20:29:53.222595" elapsed="0.000106"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:52.634575" elapsed="0.588163"/>
+</kw>
+<kw name="Verify Product Is In Cart" owner="shop_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CART_PRODUCT_NAME}</arg>
+<arg>timeout=${SELENIUM_TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-17T20:29:53.222941" elapsed="0.008781"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:53.238524" level="INFO">${cart_product} = Product</msg>
+<var>${cart_product}</var>
+<arg>${CART_PRODUCT_NAME}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:53.231852" elapsed="0.006694"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-04-17T20:29:53.238721" level="INFO">Product in cart: Product</msg>
+<arg>Product in cart: ${cart_product}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-17T20:29:53.238641" elapsed="0.000099"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:53.222818" elapsed="0.015954"/>
+</kw>
+<kw name="Proceed To Checkout From Cart" owner="shop_keywords">
+<kw name="Wait And Click Element" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-17T20:29:53.239073" elapsed="0.007303"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:53.246601" level="INFO">Clicking element 'css:[data-testid='cart-checkout-button']'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:53.246488" elapsed="0.035356"/>
+</kw>
+<arg>${CART_CHECKOUT_BTN}</arg>
+<status status="PASS" start="2026-04-17T20:29:53.238950" elapsed="0.042962"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/checkout</arg>
+<arg>timeout=${SELENIUM_TIMEOUT}</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-04-17T20:29:53.281992" elapsed="0.001569"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CHECKOUT_PAGE_TITLE}</arg>
+<arg>timeout=${SELENIUM_TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-17T20:29:53.283636" elapsed="0.012396"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-04-17T20:29:53.296452" level="INFO">Navigated to checkout page</msg>
+<arg>Navigated to checkout page</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-17T20:29:53.296212" elapsed="0.000279"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:53.238843" elapsed="0.057699"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:52.634349" elapsed="0.662225"/>
+</kw>
+<kw name="And I Fill In The Shipping Address">
+<kw name="Fill Shipping Address Form" owner="shop_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CHECKOUT_SHIPPING_SECTION_TITLE}</arg>
+<arg>timeout=${SELENIUM_TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-17T20:29:53.297035" elapsed="0.013028"/>
+</kw>
+<kw name="Set React Input Value" owner="common_keywords">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:54.805065" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cd723be18dd0f1ee5bcd68763d3f3a35", element="f.559C2C8B48EB60F15A02016318FF7430.d.D9BC1AC0708600311716AA942D582D52.e.310")&gt;</msg>
+<var>${element}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:53.310440" elapsed="1.494680"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:54.805979" level="INFO">Executing JavaScript:
+var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(arguments[0], arguments[1]);arguments[0].dispatchEvent(new Event('input', {bubbles: true}));arguments[0].dispatchEvent(new Event('change', {bubbles: true}));
+By using arguments:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="cd723be18dd0f1ee5bcd68763d3f3a35", element="f.559C2C8B48EB60F15A02016318FF7430.d.D9BC1AC0708600311716AA942D582D52.e.310")&gt;' and 'Edward'</msg>
+<arg>var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;</arg>
+<arg>setter.call(arguments[0], arguments[1]);</arg>
+<arg>arguments[0].dispatchEvent(new Event('input', {bubbles: true}));</arg>
+<arg>arguments[0].dispatchEvent(new Event('change', {bubbles: true}));</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<arg>${value}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-04-17T20:29:54.805319" elapsed="0.005630"/>
+</kw>
+<arg>${CHECKOUT_FIRSTNAME_INPUT}</arg>
+<arg>${firstname}</arg>
+<status status="PASS" start="2026-04-17T20:29:53.310246" elapsed="1.500865"/>
+</kw>
+<kw name="Set React Input Value" owner="common_keywords">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:54.821710" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cd723be18dd0f1ee5bcd68763d3f3a35", element="f.559C2C8B48EB60F15A02016318FF7430.d.D9BC1AC0708600311716AA942D582D52.e.312")&gt;</msg>
+<var>${element}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:54.811720" elapsed="0.010033"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:54.822373" level="INFO">Executing JavaScript:
+var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(arguments[0], arguments[1]);arguments[0].dispatchEvent(new Event('input', {bubbles: true}));arguments[0].dispatchEvent(new Event('change', {bubbles: true}));
+By using arguments:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="cd723be18dd0f1ee5bcd68763d3f3a35", element="f.559C2C8B48EB60F15A02016318FF7430.d.D9BC1AC0708600311716AA942D582D52.e.312")&gt;' and 'testuser_urnzmllm2580@yopmail.com'</msg>
+<arg>var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;</arg>
+<arg>setter.call(arguments[0], arguments[1]);</arg>
+<arg>arguments[0].dispatchEvent(new Event('input', {bubbles: true}));</arg>
+<arg>arguments[0].dispatchEvent(new Event('change', {bubbles: true}));</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<arg>${value}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-04-17T20:29:54.821916" elapsed="0.006469"/>
+</kw>
+<arg>${CHECKOUT_EMAIL_INPUT}</arg>
+<arg>${email}</arg>
+<status status="PASS" start="2026-04-17T20:29:54.811321" elapsed="0.017258"/>
+</kw>
+<kw name="Set React Input Value" owner="common_keywords">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:54.837536" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cd723be18dd0f1ee5bcd68763d3f3a35", element="f.559C2C8B48EB60F15A02016318FF7430.d.D9BC1AC0708600311716AA942D582D52.e.314")&gt;</msg>
+<var>${element}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:54.829080" elapsed="0.008491"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:54.838075" level="INFO">Executing JavaScript:
+var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(arguments[0], arguments[1]);arguments[0].dispatchEvent(new Event('input', {bubbles: true}));arguments[0].dispatchEvent(new Event('change', {bubbles: true}));
+By using arguments:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="cd723be18dd0f1ee5bcd68763d3f3a35", element="f.559C2C8B48EB60F15A02016318FF7430.d.D9BC1AC0708600311716AA942D582D52.e.314")&gt;' and 'Jl. Sudirman No. 1'</msg>
+<arg>var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;</arg>
+<arg>setter.call(arguments[0], arguments[1]);</arg>
+<arg>arguments[0].dispatchEvent(new Event('input', {bubbles: true}));</arg>
+<arg>arguments[0].dispatchEvent(new Event('change', {bubbles: true}));</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<arg>${value}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-04-17T20:29:54.837709" elapsed="0.005598"/>
+</kw>
+<arg>${CHECKOUT_STREET_INPUT}</arg>
+<arg>${street}</arg>
+<status status="PASS" start="2026-04-17T20:29:54.828774" elapsed="0.014683"/>
+</kw>
+<kw name="Set React Input Value" owner="common_keywords">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:54.850903" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cd723be18dd0f1ee5bcd68763d3f3a35", element="f.559C2C8B48EB60F15A02016318FF7430.d.D9BC1AC0708600311716AA942D582D52.e.316")&gt;</msg>
+<var>${element}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:54.843957" elapsed="0.006977"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:54.851377" level="INFO">Executing JavaScript:
+var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(arguments[0], arguments[1]);arguments[0].dispatchEvent(new Event('input', {bubbles: true}));arguments[0].dispatchEvent(new Event('change', {bubbles: true}));
+By using arguments:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="cd723be18dd0f1ee5bcd68763d3f3a35", element="f.559C2C8B48EB60F15A02016318FF7430.d.D9BC1AC0708600311716AA942D582D52.e.316")&gt;' and 'Jakarta'</msg>
+<arg>var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;</arg>
+<arg>setter.call(arguments[0], arguments[1]);</arg>
+<arg>arguments[0].dispatchEvent(new Event('input', {bubbles: true}));</arg>
+<arg>arguments[0].dispatchEvent(new Event('change', {bubbles: true}));</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<arg>${value}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-04-17T20:29:54.851053" elapsed="0.004936"/>
+</kw>
+<arg>${CHECKOUT_CITY_INPUT}</arg>
+<arg>${city}</arg>
+<status status="PASS" start="2026-04-17T20:29:54.843614" elapsed="0.012462"/>
+</kw>
+<kw name="Set React Input Value" owner="common_keywords">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:54.862670" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cd723be18dd0f1ee5bcd68763d3f3a35", element="f.559C2C8B48EB60F15A02016318FF7430.d.D9BC1AC0708600311716AA942D582D52.e.318")&gt;</msg>
+<var>${element}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:54.856412" elapsed="0.006287"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:54.863095" level="INFO">Executing JavaScript:
+var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(arguments[0], arguments[1]);arguments[0].dispatchEvent(new Event('input', {bubbles: true}));arguments[0].dispatchEvent(new Event('change', {bubbles: true}));
+By using arguments:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="cd723be18dd0f1ee5bcd68763d3f3a35", element="f.559C2C8B48EB60F15A02016318FF7430.d.D9BC1AC0708600311716AA942D582D52.e.318")&gt;' and 'DKI Jakarta'</msg>
+<arg>var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;</arg>
+<arg>setter.call(arguments[0], arguments[1]);</arg>
+<arg>arguments[0].dispatchEvent(new Event('input', {bubbles: true}));</arg>
+<arg>arguments[0].dispatchEvent(new Event('change', {bubbles: true}));</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<arg>${value}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-04-17T20:29:54.862809" elapsed="0.003799"/>
+</kw>
+<arg>${CHECKOUT_STATE_INPUT}</arg>
+<arg>${state}</arg>
+<status status="PASS" start="2026-04-17T20:29:54.856193" elapsed="0.010486"/>
+</kw>
+<kw name="Set React Input Value" owner="common_keywords">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:54.872835" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cd723be18dd0f1ee5bcd68763d3f3a35", element="f.559C2C8B48EB60F15A02016318FF7430.d.D9BC1AC0708600311716AA942D582D52.e.319")&gt;</msg>
+<var>${element}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:54.867036" elapsed="0.005826"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:54.873237" level="INFO">Executing JavaScript:
+var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(arguments[0], arguments[1]);arguments[0].dispatchEvent(new Event('input', {bubbles: true}));arguments[0].dispatchEvent(new Event('change', {bubbles: true}));
+By using arguments:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="cd723be18dd0f1ee5bcd68763d3f3a35", element="f.559C2C8B48EB60F15A02016318FF7430.d.D9BC1AC0708600311716AA942D582D52.e.319")&gt;' and '10110'</msg>
+<arg>var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;</arg>
+<arg>setter.call(arguments[0], arguments[1]);</arg>
+<arg>arguments[0].dispatchEvent(new Event('input', {bubbles: true}));</arg>
+<arg>arguments[0].dispatchEvent(new Event('change', {bubbles: true}));</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<arg>${value}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-04-17T20:29:54.872967" elapsed="0.003558"/>
+</kw>
+<arg>${CHECKOUT_ZIP_CODE_INPUT}</arg>
+<arg>${zip_code}</arg>
+<status status="PASS" start="2026-04-17T20:29:54.866779" elapsed="0.009816"/>
+</kw>
+<kw name="Set React Input Value" owner="common_keywords">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:54.881812" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="cd723be18dd0f1ee5bcd68763d3f3a35", element="f.559C2C8B48EB60F15A02016318FF7430.d.D9BC1AC0708600311716AA942D582D52.e.320")&gt;</msg>
+<var>${element}</var>
+<arg>${locator}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:54.876876" elapsed="0.004957"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:54.882150" level="INFO">Executing JavaScript:
+var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;setter.call(arguments[0], arguments[1]);arguments[0].dispatchEvent(new Event('input', {bubbles: true}));arguments[0].dispatchEvent(new Event('change', {bubbles: true}));
+By using arguments:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="cd723be18dd0f1ee5bcd68763d3f3a35", element="f.559C2C8B48EB60F15A02016318FF7430.d.D9BC1AC0708600311716AA942D582D52.e.320")&gt;' and 'Indonesia'</msg>
+<arg>var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;</arg>
+<arg>setter.call(arguments[0], arguments[1]);</arg>
+<arg>arguments[0].dispatchEvent(new Event('input', {bubbles: true}));</arg>
+<arg>arguments[0].dispatchEvent(new Event('change', {bubbles: true}));</arg>
+<arg>ARGUMENTS</arg>
+<arg>${element}</arg>
+<arg>${value}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-04-17T20:29:54.881913" elapsed="0.003201"/>
+</kw>
+<arg>${CHECKOUT_COUNTRY_INPUT}</arg>
+<arg>${country}</arg>
+<status status="PASS" start="2026-04-17T20:29:54.876694" elapsed="0.008477"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-04-17T20:29:54.885297" level="INFO">Shipping address form filled</msg>
+<arg>Shipping address form filled</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-17T20:29:54.885241" elapsed="0.000077"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:53.296854" elapsed="1.588494"/>
+</kw>
+<kw name="Save Shipping Address" owner="shop_keywords">
+<kw name="Wait And Click Element" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-17T20:29:54.885859" elapsed="0.007843"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:54.893938" level="INFO">Clicking element 'css:[data-testid='checkout-save-address-button']'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:54.893817" elapsed="0.028163"/>
+</kw>
+<arg>${CHECKOUT_SAVE_ADDRESS_BTN}</arg>
+<status status="PASS" start="2026-04-17T20:29:54.885708" elapsed="0.036359"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-04-17T20:29:56.422974" level="INFO">Slept 1 second 500 milliseconds.</msg>
+<arg>1.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-04-17T20:29:54.922199" elapsed="1.500929"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-04-17T20:29:56.423531" level="INFO">Shipping address saved</msg>
+<arg>Shipping address saved</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-17T20:29:56.423376" elapsed="0.000200"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:54.885512" elapsed="1.538142"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:53.296691" elapsed="3.127024"/>
+</kw>
+<kw name="And I Select Cash On Delivery As Payment">
+<kw name="Select Cash On Delivery Payment" owner="shop_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CHECKOUT_PAYMENT_SECTION_TITLE}</arg>
+<arg>timeout=${SELENIUM_TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-17T20:29:56.424456" elapsed="0.017135"/>
+</kw>
+<kw name="Wait And Click Element" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-17T20:29:56.442169" elapsed="0.012672"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:56.455181" level="INFO">Clicking element 'css:[data-testid='checkout-cod-button']'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:56.455004" elapsed="0.032675"/>
+</kw>
+<arg>${CHECKOUT_PAY_COD_BTN}</arg>
+<status status="PASS" start="2026-04-17T20:29:56.441822" elapsed="0.046190"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-04-17T20:29:57.489062" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-04-17T20:29:56.488167" elapsed="1.001045"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-04-17T20:29:57.489626" level="INFO">Payment method selected: Cash on Delivery</msg>
+<arg>Payment method selected: Cash on Delivery</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-17T20:29:57.489459" elapsed="0.000221"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:56.424227" elapsed="1.065541"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:56.423918" elapsed="1.065922"/>
+</kw>
+<kw name="And I Place The Order">
+<kw name="Place Order" owner="shop_keywords">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${CHECKOUT_PLACE_ORDER_BTN}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-04-17T20:29:57.490663" elapsed="0.280929"/>
+</kw>
+<kw name="Wait And Click Element" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-17T20:29:57.772364" elapsed="0.014288"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:57.787584" level="INFO">Clicking element 'css:[data-testid='checkout-place-order-button']'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-17T20:29:57.787315" elapsed="0.040275"/>
+</kw>
+<arg>${CHECKOUT_PLACE_ORDER_BTN}</arg>
+<status status="PASS" start="2026-04-17T20:29:57.771884" elapsed="0.055788"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-04-17T20:29:57.827872" level="INFO">Place Order button clicked — waiting for redirect</msg>
+<arg>Place Order button clicked — waiting for redirect</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-17T20:29:57.827778" elapsed="0.000123"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-04-17T20:29:59.829432" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-04-17T20:29:57.827971" elapsed="2.001658"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:59.973116" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-04-17T20:29:59.829961" elapsed="0.143221"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-04-17T20:29:59.973349" level="INFO">Screenshot captured 2s after clicking Place Order</msg>
+<arg>Screenshot captured 2s after clicking Place Order</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-17T20:29:59.973284" elapsed="0.000084"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:57.490387" elapsed="2.483015"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:29:57.490030" elapsed="2.483397"/>
+</kw>
+<kw name="Then The Order Is Confirmed">
+<kw name="Verify Order Placed Successfully" owner="shop_keywords">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:29:59.975990" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:29:59.974112" elapsed="0.001894"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:29:59.976206" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:29:59.976069" elapsed="0.000230">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:29:59.973961" elapsed="0.002414">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:00.984102" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:00.978115" elapsed="0.006047"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:00.984665" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:00.984379" elapsed="0.000400">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:00.977418" elapsed="0.007528">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:01.992270" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:01.987027" elapsed="0.005303"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:01.992817" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:01.992540" elapsed="0.000376">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:01.986390" elapsed="0.006703">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:03.003896" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:02.997038" elapsed="0.006920"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:03.004467" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:03.004188" elapsed="0.000376">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:02.996129" elapsed="0.008594">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:04.013132" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:04.006793" elapsed="0.006400"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:04.013699" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:04.013416" elapsed="0.000384">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:04.005898" elapsed="0.008063">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:05.024395" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:05.018248" elapsed="0.006211"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:05.024971" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:05.024690" elapsed="0.000377">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:05.017233" elapsed="0.008014">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:06.032857" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:06.027316" elapsed="0.005729"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:06.033535" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:06.033251" elapsed="0.000386">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:06.026771" elapsed="0.007021">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:07.044981" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:07.037753" elapsed="0.007294"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:07.045562" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:07.045279" elapsed="0.000381">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:07.036705" elapsed="0.009118">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:08.057266" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:08.050452" elapsed="0.006884"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:08.057904" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:08.057576" elapsed="0.000444">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:08.049380" elapsed="0.008809">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:09.062120" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:09.059316" elapsed="0.002833"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:09.063116" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:09.062484" elapsed="0.000697">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:09.059090" elapsed="0.004207">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:10.071248" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:10.065300" elapsed="0.006018"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:10.071833" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:10.071544" elapsed="0.000385">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:10.064756" elapsed="0.007333">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:11.078113" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:11.073223" elapsed="0.004946"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:11.078637" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:11.078372" elapsed="0.000361">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:11.072784" elapsed="0.006102">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:12.086074" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:12.080986" elapsed="0.005163"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:12.086669" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:12.086380" elapsed="0.000383">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:12.080471" elapsed="0.006451">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:13.095133" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:13.090405" elapsed="0.004791"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:13.095668" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:13.095402" elapsed="0.000363">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:13.089687" elapsed="0.006233">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:14.104091" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:14.098987" elapsed="0.005163"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:14.104614" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:14.104351" elapsed="0.000354">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:14.098455" elapsed="0.007370">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:15.111807" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:15.107526" elapsed="0.004331"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:15.112252" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:15.112025" elapsed="0.000305">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:15.107164" elapsed="0.005313">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:16.119899" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:16.115034" elapsed="0.004921"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:16.120438" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:16.120165" elapsed="0.000370">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:16.114566" elapsed="0.006129">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:17.127327" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:17.121906" elapsed="0.005478"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:17.127868" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:17.127589" elapsed="0.000373">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:17.121462" elapsed="0.006657">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:18.137743" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:18.132162" elapsed="0.005641"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:18.138321" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:18.138032" elapsed="0.000387">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:18.131284" elapsed="0.007298">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:19.150947" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:19.141376" elapsed="0.009620"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:19.151410" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:19.151182" elapsed="0.000316">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:19.140945" elapsed="0.010680">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:20.157941" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:20.152854" elapsed="0.005152"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:20.158523" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:20.158227" elapsed="0.000397">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:20.152330" elapsed="0.006459">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:21.165649" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:21.160240" elapsed="0.005470"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:21.166201" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:21.165929" elapsed="0.000368">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:21.159659" elapsed="0.006795">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:22.174171" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:22.168465" elapsed="0.005769"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:22.174791" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:22.174489" elapsed="0.000422">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:22.167935" elapsed="0.007141">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:23.181613" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:23.176680" elapsed="0.004991"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:23.182701" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:23.182366" elapsed="0.000657">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:23.176262" elapsed="0.007043">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:24.190874" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:24.185974" elapsed="0.004955"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:24.191404" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:24.191138" elapsed="0.000361">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:24.185436" elapsed="0.006219">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:25.199351" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:25.194112" elapsed="0.005296"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:25.199881" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:25.199615" elapsed="0.000361">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:25.193596" elapsed="0.006534">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:26.206749" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:26.201765" elapsed="0.005039"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:26.207299" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:26.207016" elapsed="0.000381">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:26.201333" elapsed="0.006221">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:27.214461" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:27.209401" elapsed="0.005122"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:27.215030" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:27.214756" elapsed="0.000365">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:27.208943" elapsed="0.006333">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:28.222473" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:28.217276" elapsed="0.005252"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:28.223007" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:28.222742" elapsed="0.000357">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:28.216838" elapsed="0.006415">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:29.233001" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:29.227011" elapsed="0.006052"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:29.233574" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:29.233290" elapsed="0.000385">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:29.226236" elapsed="0.007604">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<kw name="Checkout URL Should Have Changed" owner="shop_keywords">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:30.241688" level="INFO">${url} = https://storedemo.testdino.com/checkout</msg>
+<var>${url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2026-04-17T20:30:30.236390" elapsed="0.005357"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2026-04-17T20:30:30.242470" level="FAIL">'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>${url}</arg>
+<arg>/checkout</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2026-04-17T20:30:30.242120" elapsed="0.000462">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:30.235965" elapsed="0.006792">'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<msg time="2026-04-17T20:30:30.242882" level="FAIL">Keyword 'Checkout URL Should Have Changed' failed after retrying for 30 seconds. The last error was: 'https://storedemo.testdino.com/checkout' contains '/checkout'</msg>
+<arg>30s</arg>
+<arg>1s</arg>
+<arg>Checkout URL Should Have Changed</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="FAIL" start="2026-04-17T20:29:59.973844" elapsed="30.269238">Keyword 'Checkout URL Should Have Changed' failed after retrying for 30 seconds. The last error was: 'https://storedemo.testdino.com/checkout' contains '/checkout'</status>
+</kw>
+<msg time="2026-04-17T20:30:30.243244" level="INFO">${left_checkout} = False</msg>
+<var>${left_checkout}</var>
+<arg>Wait Until Keyword Succeeds</arg>
+<arg>30s</arg>
+<arg>1s</arg>
+<arg>Checkout URL Should Have Changed</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-04-17T20:29:59.973758" elapsed="30.269520"/>
+</kw>
+<if>
+<branch type="IF" condition="${left_checkout}">
+<kw name="Log" owner="BuiltIn">
+<arg>Order placed successfully — left the checkout page</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-04-17T20:30:30.244154" elapsed="0.000039"/>
+</kw>
+<status status="NOT RUN" start="2026-04-17T20:30:30.243904" elapsed="0.000353"/>
+</branch>
+<branch type="ELSE">
+<kw name="Capture Screenshot On Failure" owner="common_keywords">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:30.364223" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-04-17T20:30:30.244812" elapsed="0.119474"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:30:30.244497" elapsed="0.119844"/>
+</kw>
+<kw name="Fail" owner="BuiltIn">
+<msg time="2026-04-17T20:30:30.364587" level="FAIL">Order failed — browser is still on the checkout page after 30 seconds</msg>
+<arg>Order failed — browser is still on the checkout page after 30 seconds</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="FAIL" start="2026-04-17T20:30:30.364428" elapsed="0.000195">Order failed — browser is still on the checkout page after 30 seconds</status>
+</kw>
+<status status="FAIL" start="2026-04-17T20:30:30.244315" elapsed="0.120345">Order failed — browser is still on the checkout page after 30 seconds</status>
+</branch>
+<status status="FAIL" start="2026-04-17T20:30:30.243868" elapsed="0.120816">Order failed — browser is still on the checkout page after 30 seconds</status>
+</if>
+<kw name="Log" owner="BuiltIn">
+<arg>Order confirmed for product: ${SELECTED_PRODUCT_NAME}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-04-17T20:30:30.364738" elapsed="0.000012"/>
+</kw>
+<status status="FAIL" start="2026-04-17T20:29:59.973655" elapsed="30.391136">Order failed — browser is still on the checkout page after 30 seconds</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>TC-04 PASSED — Order placed for product: ${SELECTED_PRODUCT_NAME}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-04-17T20:30:30.364846" elapsed="0.000011"/>
+</kw>
+<status status="FAIL" start="2026-04-17T20:29:59.973505" elapsed="30.391386">Order failed — browser is still on the checkout page after 30 seconds</status>
+</kw>
+<kw name="Run Keyword If Test Failed" owner="BuiltIn" type="TEARDOWN">
+<kw name="Capture Screenshot On Failure" owner="common_keywords">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-04-17T20:30:30.439426" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-04-17T20:30:30.365232" elapsed="0.074253"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:30:30.365115" elapsed="0.074425"/>
+</kw>
+<arg>Capture Screenshot On Failure</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-04-17T20:30:30.365024" elapsed="0.074541"/>
+</kw>
+<doc>Scenario: A logged-in user applies a category filter, adds the first
+result to the cart, and completes checkout using Cash on Delivery.
+
+Given I am on the All Products page
+When I open the filter panel and select the "Uncategorized" category
+And I add the first product to the cart
+And I navigate to the cart and proceed to checkout
+And I fill in the shipping address and save it
+And I select Cash on Delivery as the payment method
+And I place the order
+Then the order is confirmed</doc>
+<status status="FAIL" start="2026-04-17T20:29:47.241211" elapsed="43.198384">Order failed — browser is still on the checkout page after 30 seconds</status>
+</test>
+<kw name="Close All Open Browsers" owner="common_keywords" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-04-17T20:30:30.440138" elapsed="0.101995"/>
+</kw>
+<status status="PASS" start="2026-04-17T20:30:30.440029" elapsed="0.102174"/>
+</kw>
+<doc>Feature: Product Browsing, Filtering, and Checkout
+
+As a logged-in user of TestDino Store
+I want to browse products, apply a category filter, and complete a purchase
+So that I can validate the end-to-end shopping flow
+
+Precondition : An authenticated session (handled by Suite Setup)
+Postcondition: An order has been placed via Cash on Delivery</doc>
+<status status="FAIL" start="2026-04-17T20:29:36.572835" elapsed="53.969392"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Shopping">Shopping</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
